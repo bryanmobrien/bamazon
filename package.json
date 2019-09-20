@@ -1,0 +1,19 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "Amazon like node app",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryanmobrien/bamazon.git"
+  },
+  "author": "Bryan O'Brien",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bryanmobrien/bamazon/issues"
+  },
+  "homepage": "https://github.com/bryanmobrien/bamazon#readme"
+}
