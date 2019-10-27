@@ -23,7 +23,7 @@ connection.connect(function(err) {
 //things that need to run after the connection is established
 function afterCon(){
     //query the database in a function because yes
-    getProducts(`SELECT * FROM products`, con, function(res){
+    getProducts(`SELECT * FROM products`, connection, function(res){
         //create a table with the resulting data, clear the terminal, and log the newly created table to it
         let table = createTable(res, true);
         console.clear();
@@ -31,15 +31,15 @@ function afterCon(){
         //run the ask questions function that inquires about what product the user would like to buy
         askQuestions(function(answers){
             //filter the data we got from the database earlier for the id we just got from the user
-           let item = res.filter(thing => parseInt(thing.id) === parseInt(answers.id));
+           let item = res.filter(thing => parseInt(thing.item_id) === parseInt(answers.item_id));
            //if the id does not exist then give the user an error and end the database connection 
             if (!item[0]) {
-                con.end();
+                connection.end();
                 return console.log("incorrect item id given: no product found!")
             }
             //if the number given was to big/small log that it was an issue and end the database connection
             if (parseInt(answers.quantity) > parseInt(item[0].stock_quantity) || parseInt(answers.quantity) <= 0){
-                con.end();
+                connection.end();
                 return console.log("Insufficient quantity!\nOrder Canceled")
             }
             //get the total price
@@ -55,10 +55,10 @@ function afterCon(){
       YOUR ORDER\n**********************
  quantity: ${parseInt(answers.quantity)}
 Item name: ${item[0].product_name}
-  Item id: ${item[0].id}
+  Item id: ${item[0].item_id}
 ----------------------
     Total: ${totalPrice}\n\n`)
-                    con.end();
+                    connection.end();
                 });
             })
         })
@@ -69,7 +69,7 @@ Item name: ${item[0].product_name}
 function askQuestions(cb){
   inquirer.prompt([
       {
-          name: "id",
+          name: "item_id",
           message: "What is the ID of the product you would like to buy?\n",
           validate: function(name){
               return name !== "";
