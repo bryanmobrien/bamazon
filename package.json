@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/bryanmobrien/bamazon#readme",
   "dependencies": {
+    "ascii-table": "0.0.9",
     "inquirer": "^7.0.0",
     "mysql": "^2.17.1"
   }
