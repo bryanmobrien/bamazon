@@ -1,7 +1,7 @@
 const asciiTable = require("ascii-table");
 
-module.exports.getProducts = function (queryString, con, cb) {
-    con.query(queryString, function (err, res) {
+module.exports.getProducts = function (queryString, connection, cb) {
+    connection.query(queryString, function (err, res) {
         if (err) throw err;
         cb(res)
     })

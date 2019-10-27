@@ -8,36 +8,36 @@ const createTable = require("./functions.js").createTable;
 const getProducts = require("./functions.js").getProducts;
 
 //function that takes a sting, mysql connection, and a callback function
-module.exports = function (str, con, cb) {
+module.exports = function (str, connection, cb) {
     //run a given string through a switch case
     switch (str) {
         case colors.green("View Products for Sale"):
             //if the user chose "View Products for Sale" option from the main menu we query the database to get all of the products from the DB
-            getData(con, cb);
+            getData(connection, cb);
             break;
         case colors.green("View Low Inventory"):
             //if the user chose "View Low Inventory" option from the main menu we run the low inventory function
-            lowInventory(con, cb);
+            lowInventory(connection, cb);
             break;
         case colors.green("Add to Inventory"):
             //if the user chose "Add to Inventory" option from the main menu we run the add inventory function
-            addInventory(con, cb);
+            addInventory(connection, cb);
             break;
         case colors.green("Add New Product"):
             //if the user chose "Add New Product" option from the main menu we run the add product function
-            addProduct(con, cb);
+            addProduct(connection, cb);
             break;
         case colors.red("exit"):
             //if the user chose "exit" option from the main menu we end the DB connection and exit the process
-            con.end();
+            connection.end();
             process.exit();
             break;
     }
 }
 
 //query the database to get all of the products from the DB
-function getData(con, cb) {
-    getProducts(`SELECT * FROM products`, con, function (res) {
+function getData(connection, cb) {
+    getProducts(`SELECT * FROM products`, connection, function (res) {
         //after we have gotten the data we create a table for the data so it looks nice, we are clearing the terminal
         let table = createTable(res);
         console.clear();
@@ -48,7 +48,7 @@ function getData(con, cb) {
 }
 
 //get the new information from the user and add the product to the database
-function addProduct(con, cb) {
+function addProduct(connection, cb) {
     //prompt the user for the name, department, price, quantity of the new product
     inquirer.prompt([{
         name: "name",
@@ -77,7 +77,7 @@ function addProduct(con, cb) {
     }]).then(function (answers) {
         //insert the new data into the database 
         getProducts(`INSERT INTO products (product_name, department_name, price, stock_quantity)
-            VALUES ("${answers.name}", "${answers.department}", ${+answers.price}, ${+answers.quantity});`, con, function (resolve) {
+            VALUES ("${answers.name}", "${answers.department}", ${+answers.price}, ${+answers.quantity});`, connection, function (resolve) {
                 //get the data from the database and display the updated information from the database on screen and run the callback function to bring up the main menu again
             getData(con, cb);
         })
@@ -85,9 +85,9 @@ function addProduct(con, cb) {
 }
 
 //prompt the user to choose what product to add inventory to
-function addInventory(con, cb) {
+function addInventory(connection, cb) {
     //get and display the data on screen to help the user decide what to update
-    getData(con, function () {
+    getData(connection, function () {
         //ask the user what id to update and how much to add to it
         inquirer.prompt([{
             name: "id",
@@ -97,17 +97,17 @@ function addInventory(con, cb) {
             message: "how much would you like to add to the inventory?\n"
         }]).then(function (answers) {
             //update the id in the database with the new quantity
-            getProducts(`UPDATE products SET stock_quantity= stock_quantity + ${parseInt(answers.count)} WHERE id=${answers.id}`, con, function (resolve) {
+            getProducts(`UPDATE products SET stock_quantity= stock_quantity + ${parseInt(answers.count)} WHERE item_id=${answers.id}`, connection, function (resolve) {
                 //display the new data on screen and run the callback function to get to the main menu
-                getData(con, cb);
+                getData(connection, cb);
             })
         })
     });
 }
 
 //this checks for anything in the database that is less than 5 in in quantity and displays the relevant data to the user
-function lowInventory(con, cb) {
-    getProducts(`SELECT * FROM products WHERE stock_quantity BETWEEN 0 AND 5`, con, function (res) {
+function lowInventory(connection, cb) {
+    getProducts(`SELECT * FROM products WHERE stock_quantity BETWEEN 0 AND 5`, connection, function (res) {
         //if nothing is returned from the database
         if (res.length === 0) {
             //clear the console and use the cfonts package we imported earlier to make a cool looking message for "No Low Inventory Found" instead of plain old text 
