@@ -13,7 +13,7 @@ module.exports.createTable = function (res, isCustomer) {
         table.setHeading("id", "product", "department", "price", "quantity")
         res.forEach(item => {
             let {
-                id,
+                item_id,
                 product_name,
                 department_name,
                 price,
@@ -25,7 +25,7 @@ module.exports.createTable = function (res, isCustomer) {
         table.setHeading("id", "product", "department", "price", "quantity", "sales")
         res.forEach(item => {
             let {
-                id,
+                item_id,
                 product_name,
                 department_name,
                 price,
