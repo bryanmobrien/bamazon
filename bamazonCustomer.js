@@ -45,9 +45,9 @@ function afterCon(){
             //get the total price
             let totalPrice = item[0].price * parseInt(answers.quantity);
             //update the item in the database for both the quantity and the product_sales
-            getProducts(`UPDATE products SET stock_quantity=${ parseInt(item[0].stock_quantity) - parseInt(answers.quantity)},product_sales=${item[0].product_sales + totalPrice} WHERE id=${item[0].item_id}`, con, function(resolve){
+            getProducts(`UPDATE products SET stock_quantity=${ parseInt(item[0].stock_quantity) - parseInt(answers.quantity)},product_sales=${item[0].product_sales + totalPrice} WHERE item_id=${item[0].item_id}`, connection, function(resolve){
                 //get the products table again and display it for the user as well as the price
-                getProducts(`SELECT * FROM products`, con, function (res) {
+                getProducts(`SELECT * FROM products`, connection, function (res) {
                     let table = createTable(res, true);
                     console.clear();
                     console.log(table.toString()+

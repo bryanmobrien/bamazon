@@ -19,10 +19,10 @@ module.exports.createTable = function (res, isCustomer) {
                 price,
                 stock_quantity
             } = item
-            table.addRow(id, product_name, department_name, price, stock_quantity)
+            table.addRow(item_id, product_name, department_name, price, stock_quantity)
         });
     } else {
-        table.setHeading("id", "product", "department", "price", "quantity", "sales")
+        table.setHeading("item_id", "product", "department", "price", "quantity", "sales")
         res.forEach(item => {
             let {
                 item_id,
@@ -32,7 +32,7 @@ module.exports.createTable = function (res, isCustomer) {
                 stock_quantity,
                 product_sales
             } = item
-            table.addRow(id, product_name, department_name, price, stock_quantity, product_sales)
+            table.addRow(item_id, product_name, department_name, price, stock_quantity, product_sales)
         });
     }
     return table;
