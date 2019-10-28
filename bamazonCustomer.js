@@ -40,7 +40,7 @@ function afterCon(){
             //if the number given was to big/small log that it was an issue and end the database connection
             if (parseInt(answers.quantity) > parseInt(item[0].stock_quantity) || parseInt(answers.quantity) <= 0){
                 connection.end();
-                return console.log("Insufficient quantity!\nOrder Canceled");
+                return console.log("Insufficient quantity!\nOrder Cancelled");
             }
             //get the total price
             let totalPrice = item[0].price * parseInt(answers.quantity);
