@@ -13,14 +13,14 @@ bamazonSupervisor.js - the Supervisor portal
 ### `bamazonCustomer.js`
 - run `node bamazonCustomer.js` in the terminal
 
-![customer](https://i.imgur.com/mSdH1Jm.gif)
+![customer](https://monosnap.com/file/gN3T0kOVTHg4FRSwCvtJCxg6LwN6M8)
 
 ### `bamazonManager.js`
 - to run `node bamazonManager.js` and choose one of the options in the menu on screen as shown below
 
 - `View Products for Sale with bamazonCustomer.js`
 
-![alt text](https://monosnap.com/file/gN3T0kOVTHg4FRSwCvtJCxg6LwN6M8)
+![alt text]()
 - `View Low Inventory`
 
 ![alt text](https://i.imgur.com/JGoArVj.gif)
