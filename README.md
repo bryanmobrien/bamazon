@@ -18,12 +18,12 @@ bamazonSupervisor.js - the Supervisor portal
 ### `bamazonManager.js`
 - run `node bamazonManager.js` in the terminal
 
-![Alt text](https://monosnap.com/image/QXUI8XYJMY7T9ZCTxgzQng41kbssQr)
+![Alt text](https://monosnap.com/image/KffJWnnbggKgtfzVYt2gfdpvxjRuvQ)
 
 ### `bamazonSupervisor.js`
 - run `node bamazonSupervisor.js` in the terminal
 
-![Alt text](https://monosnap.com/image/QXUI8XYJMY7T9ZCTxgzQng41kbssQr)
+![Alt text](https://monosnap.com/image/tOFaY7YJ77peRqfmbP16zIpZK0wNK9)
 
 
 ### Thanks
