@@ -18,37 +18,37 @@ bamazonSupervisor.js - the Supervisor portal
 ### `bamazonManager.js`
 - to run `node bamazonManager.js` and choose one of the options in the menu on screen as shown below
 
-- `View Products for Sale`
+- `View Products for Sale with bamazonCustomer.js`
 
-![So there was a gif here ... awkward -_-](https://i.imgur.com/zseCuaR.gif)
+![alt text](https://monosnap.com/file/gN3T0kOVTHg4FRSwCvtJCxg6LwN6M8)
 - `View Low Inventory`
 
-![So there was a gif here ... awkward -_-](https://i.imgur.com/JGoArVj.gif)
+![alt text](https://i.imgur.com/JGoArVj.gif)
 - `Add to Inventory`
 
-![So there was a gif here ... awkward -_-](https://i.imgur.com/XKh1ju4.gif)
+![alt text](https://i.imgur.com/XKh1ju4.gif)
 - `Add New Product`
 
-![So there was a gif here ... awkward -_-](https://i.imgur.com/iLuL3ml.gif)
+![alt text](https://i.imgur.com/iLuL3ml.gif)
 - `exit`
 
-![So there was a gif here ... awkward -_-](https://i.imgur.com/fsmAChj.gif)
+![alt text](https://i.imgur.com/fsmAChj.gif)
 
 ### `bamazonSupervisor.js`
 - to run `node bamazonSupervisor.js` and choose one of the options in the menu on screen as shown below
 
 - `View Product Sales by Department`
 
-![So there was a gif here ... awkward -_-](https://i.imgur.com/8QZBrwA.gif)
+![alt text](https://i.imgur.com/8QZBrwA.gif)
 - `Create New Department`
 
-![So there was a gif here ... awkward -_-](https://i.imgur.com/f1iCSVE.gif)
+![alt text](https://i.imgur.com/f1iCSVE.gif)
 - `View Departments`
 
-![So there was a gif here ... awkward -_-](https://i.imgur.com/H7PkeAB.gif)
+![alt text](https://i.imgur.com/H7PkeAB.gif)
 - `exit`
 
-![So there was a gif here ... awkward -_-](https://i.imgur.com/TNc5z0s.gif)
+![alt text](https://i.imgur.com/TNc5z0s.gif)
 
 ### Thanks
 Much thanks to Coop for helping me with the MySQL on this.
