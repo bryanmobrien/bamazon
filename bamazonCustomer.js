@@ -27,7 +27,7 @@ function afterCon(){
         //create a table with the resulting data, clear the terminal, and log the newly created table to it
         let table = createTable(res, true);
         console.clear();
-        console.log(table.toString()+"\n")
+        console.log(table.toString()+"\n");
         //run the ask questions function that inquires about what product the user would like to buy
         askQuestions(function(answers){
             //filter the data we got from the database earlier for the id we just got from the user
@@ -35,12 +35,12 @@ function afterCon(){
            //if the id does not exist then give the user an error and end the database connection 
             if (!item[0]) {
                 connection.end();
-                return console.log("incorrect item id given: no product found!")
+                return console.log("incorrect item id given: no product found!");
             }
             //if the number given was to big/small log that it was an issue and end the database connection
             if (parseInt(answers.quantity) > parseInt(item[0].stock_quantity) || parseInt(answers.quantity) <= 0){
                 connection.end();
-                return console.log("Insufficient quantity!\nOrder Canceled")
+                return console.log("Insufficient quantity!\nOrder Canceled");
             }
             //get the total price
             let totalPrice = item[0].price * parseInt(answers.quantity);
@@ -57,12 +57,12 @@ function afterCon(){
 Item name: ${item[0].product_name}
   Item id: ${item[0].item_id}
 ----------------------
-    Total: ${totalPrice}\n\n`)
+    Total: ${totalPrice}\n\n`);
                     connection.end();
                 });
-            })
-        })
-    })
+            });
+        });
+    });
 }
 
     //this function will ask the user what they would like to buy and how much
@@ -83,6 +83,6 @@ function askQuestions(cb){
           }
       }
   ]).then(function(answers) {
-   cb(answers)
-  })
+   cb(answers);
+  });
 }

@@ -10,7 +10,7 @@ let choices = [
     colors.green("Add to Inventory"),
     colors.green("Add New Product"),
     colors.red("exit")
-]
+];
 
 //import the manager function
 const functions = require("./managerMenu.js");
@@ -26,8 +26,8 @@ function askQuestions(cb) {
         console.clear();
         functions(answers.id, con, function () {
             askQuestions();
-        })
-    })
+        });
+    });
 }
 
 

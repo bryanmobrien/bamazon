@@ -34,7 +34,7 @@ let choices = [
     colors.green("Create New Department"),
     colors.green("View Departments"),
     colors.red("exit")
-]
+];
 
 function afterCon() {
     inquirer.prompt([{
@@ -58,12 +58,12 @@ function afterCon() {
                                     overhead: data.over_head_costs,
                                     sales: data.product_sales || 0,
                                     id: data.id
-                                }
-                                infoArr.push(data.department_name)
+                                };
+                                infoArr.push(data.department_name);
                             } else {
                                 newDataOBJ[data.department_name].sales += data.product_sales;
                             }
-                        })
+                        });
                         let table = new asciiTable("Sales by Department");
                         table.setHeading("id", "department", "over head costs", "product sales", "total profit");
                         infoArr.forEach(dept => {
@@ -72,9 +72,9 @@ function afterCon() {
                                 sales,
                                 id
                             } = newDataOBJ[dept];
-                            let total = parseFloat((sales - overhead).toFixed(2))
-                            table.addRow(id, dept, overhead, sales, total)
-                        })
+                            let total = parseFloat((sales - overhead).toFixed(2));
+                            table.addRow(id, dept, overhead, sales, total);
+                        });
                         console.clear();
                         console.log(table.toString() + "\n");
                         afterCon();
@@ -100,15 +100,15 @@ function afterCon() {
                         getProducts(`INSERT INTO departments (department_name, over_head_costs) VALUE ("${answers.name}", ${+answers.cost})`, con, function () {
                             getDepartments(con, function () {
                                 afterCon();
-                            })
-                        })
-                    })
+                            });
+                        });
+                    });
                 });
                 break;
             case choices[2]:
                 getDepartments(con, function () {
                     afterCon();
-                })
+                });
                 break;
             case choices[3]:
                 //if the user chose "exit" option from the main menu we end the DB connection and exit the process
@@ -117,7 +117,7 @@ function afterCon() {
                 process.exit();
                 break;
         }
-    })
+    });
 }
 
 function getDepartments(con, cb) {
@@ -130,10 +130,10 @@ function getDepartments(con, cb) {
                 department_name,
                 over_head_costs
             } = dept;
-            table.addRow(id, department_name, over_head_costs)
-        })
+            table.addRow(id, department_name, over_head_costs);
+        });
         console.clear();
-        console.log(table.toString() + "\n")
+        console.log(table.toString() + "\n");
         cb();
-    })
+    });
 }

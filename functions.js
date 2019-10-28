@@ -3,14 +3,14 @@ const asciiTable = require("ascii-table");
 module.exports.getProducts = function (queryString, connection, cb) {
     connection.query(queryString, function (err, res) {
         if (err) throw err;
-        cb(res)
-    })
-}
+        cb(res);
+    });
+};
 
 module.exports.createTable = function (res, isCustomer) {
-    let table = new asciiTable("Bamazon Products")
+    let table = new asciiTable("Bamazon Products");
     if (isCustomer) {
-        table.setHeading("id", "product", "department", "price", "quantity")
+        table.setHeading("id", "product", "department", "price", "quantity");
         res.forEach(item => {
             let {
                 item_id,
