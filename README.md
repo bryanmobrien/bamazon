@@ -13,7 +13,7 @@ bamazonSupervisor.js - the Supervisor portal
 ### `bamazonCustomer.js`
 - run `node bamazonCustomer.js` in the terminal
 
-![customer](https://monosnap.com/file/gN3T0kOVTHg4FRSwCvtJCxg6LwN6M8)
+![customer](![Alt text](https://monosnap.com/image/QXUI8XYJMY7T9ZCTxgzQng41kbssQr))
 
 ### `bamazonManager.js`
 - to run `node bamazonManager.js` and choose one of the options in the menu on screen as shown below
